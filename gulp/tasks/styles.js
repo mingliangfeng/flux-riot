@@ -1,11 +1,12 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var less = require('gulp-less');
 var connect = require('gulp-connect');
-var config = require('../config.js').sass;
+var config_less = require('../config.js').less;
 
 gulp.task('styles', function() {
-  gulp.src(config.src)
-    .pipe(sass(config.settings))
-    .pipe(gulp.dest(config.dest))
+  gulp.src(config_less.src)
+    .pipe(less())
+    .pipe(gulp.dest(config_less.dest))
     .pipe(connect.reload());
 });

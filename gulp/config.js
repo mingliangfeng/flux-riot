@@ -20,11 +20,18 @@ module.exports = {
       imagePath: '/images' // Used by the image-url helper
     }
   },
+  less: {
+    src: src + "/styles/**/*.less",
+    dest: dest + "/styles"
+  },
   browserify: {
     settings: {
-      transform: ['reactify', '6to5ify']
+      transform: [
+        [ "riotify", {"type": "coffeescript", "expr": true} ],
+        [ "coffeeify", {"extension": "coffee"} ],
+        '6to5ify' ]
     },
-    src: src + '/js/index.jsx',
+    src: src + '/js/index.coffee',
     dest: dest + '/js',
     outputName: 'index.js',
   },
