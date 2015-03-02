@@ -1,5 +1,5 @@
-var dest = "./dist";
-var src = './src';
+var dest = "./dist"
+var src = './src'
 
 module.exports = {
   server: {
@@ -25,9 +25,14 @@ module.exports = {
     dest: dest + "/styles"
   },
   browserify: {
+    opts: {
+      fullPaths: true,
+      debug: true,
+      extensions: ['.coffee', '.js']
+    },
     settings: {
       transform: [
-        [ "riotify", {"type": "coffeescript", "expr": true} ],
+        [ "riotify" ],
         [ "coffeeify", {"extension": "coffee"} ],
         '6to5ify' ]
     },
@@ -43,4 +48,4 @@ module.exports = {
     src: 'src/**/*.*',
     tasks: ['build']
   }
-};
+}

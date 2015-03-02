@@ -1,7 +1,7 @@
-var gulp = require('gulp');
-var config = require('../config').html;
+var gulp = require('gulp')
+var config = require('../config').html
 
 gulp.task('html', function() {
   return gulp.src(config.src)
-    .pipe(gulp.dest(config.dest));
-});
+    .pipe(gulp.dest(config.dest))
+})

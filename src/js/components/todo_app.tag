@@ -1,30 +1,39 @@
+require('./todo_list.tag')
+var todo_action_creator = require('../actions/todo_action_creator.coffee')
+
 <todo-app>
 
   <h3>{ opts.title }</h3>
 
-  <todo-list items={ items } />
+  <todo-list items={ items }></todo-list>
 
-  <form onsubmit={ add }>
-    <input name="input" onkeyup={ edit }>
-    <button disabled={ !text }>Add #{ items.filter(filter).length + 1 }</button>
-  </form>
+  <div class="actions">
+    <button onclick={ add }>Add #{ items.length + 1 }</button>
+  </div>
 
-  @items = opts.items
+  this.store = opts.store
 
-  @edit = (e)->
-    @text = e.target.value
+  add() {
+    riot.route('todos/add')
+  }
 
-  @add = (e)->
-    if @text
-      @items.push title: this.text
-      @text = @input.value = ''
+  getDataFromStore() {
+    this.items = this.store.getAll()
+  }
 
-  # an example how to filter items on the list
-  @filter = (item)-> !item.hidden
+  updateFromStore() {
+    this.getDataFromStore()
+    this.update()
+  }
 
-  @toggle = (e)->
-    item = e.item
-    item.done = !item.done
-    true
+  this.on('mount', function() {
+    this.store.addChangeListener(this.updateFromStore)
+  })
+
+  this.on('unmount', function() {
+    this.store.removeChangeListener(this.updateFromStore)
+  })
+
+  this.getDataFromStore()
 
 </todo-app>

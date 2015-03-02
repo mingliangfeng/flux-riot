@@ -1,5 +1,2 @@
-require './components/todo_item.tag'
-require './components/todo_list.tag'
-require './components/todo_app.tag'
-
-riot.mount 'todo-app'
+todo_routes = require './routers/todo_routes.coffee'
+todo_routes.start()
