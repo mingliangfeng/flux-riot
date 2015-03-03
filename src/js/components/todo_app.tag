@@ -1,5 +1,6 @@
 require('./todo_list.tag')
-var todo_action_creator = require('../actions/todo_action_creator.coffee')
+var todos = require('../actions/todos.coffee')
+var store_mixin = require('./store_mixin.coffee')
 
 <todo-app>
 
@@ -10,8 +11,6 @@ var todo_action_creator = require('../actions/todo_action_creator.coffee')
   <div class="actions">
     <button onclick={ add }>Add #{ items.length + 1 }</button>
   </div>
-
-  this.store = opts.store
 
   add() {
     riot.route('todos/add')
@@ -26,13 +25,7 @@ var todo_action_creator = require('../actions/todo_action_creator.coffee')
     this.update()
   }
 
-  this.on('mount', function() {
-    this.store.addChangeListener(this.updateFromStore)
-  })
-
-  this.on('unmount', function() {
-    this.store.removeChangeListener(this.updateFromStore)
-  })
+  store_mixin(this, opts.store, this.updateFromStore)
 
   this.getDataFromStore()
 

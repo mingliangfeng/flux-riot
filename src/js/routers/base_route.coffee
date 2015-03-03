@@ -25,4 +25,4 @@ riot.route.to = (mapper_array)->
 
   riot.route routes
 
-  { start: (r)-> riot.route.exec( r || routes) }
+  { start: (r)-> riot.route.exec(r || routes) }

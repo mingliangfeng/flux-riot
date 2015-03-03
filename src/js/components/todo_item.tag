@@ -1,4 +1,4 @@
-var todo_action_creator = require('../actions/todo_action_creator.coffee')
+var todos = require('../actions/todos.coffee')
 
 <todo-item>
   <li class={ todo-item: true, completed: item.done }>
@@ -12,13 +12,13 @@ var todo_action_creator = require('../actions/todo_action_creator.coffee')
   this.item = opts.item
 
   toggle() {
-    todo_action_creator.toggleTask(this.item)
+    todos.toggleTask(this.item)
     // return true to make sure checkbox in correct state, for checkbox only?
     return true
   }
 
   remove() {
-    todo_action_creator.removeTask(this.item)
+    todos.removeTask(this.item)
   }
 
   edit() {

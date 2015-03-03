@@ -7,16 +7,14 @@ dispatch = (type, data)->
     data: data
 
 module.exports =
-  showList: ->
-    
   addTask: (text) ->
     dispatch AppConstants.ActionTypes.ADD_TASK, text
 
-  removeTask: (todoItem) ->
-    dispatch AppConstants.ActionTypes.REMOVE_TASK, todoItem
+  removeTask: (task) ->
+    dispatch AppConstants.ActionTypes.REMOVE_TASK, task
 
-  clearList: ->
-    console.warn 'clearList action not yet implemented...'
+  toggleTask: (task) ->
+    dispatch AppConstants.ActionTypes.TOGGLE_TASK, task
 
-  toggleTask: (todoItem) ->
-    dispatch AppConstants.ActionTypes.TOGGLE_TASK, todoItem
+  clearTasks: ->
+    dispatch AppConstants.ActionTypes.CLEAR_TASKS
