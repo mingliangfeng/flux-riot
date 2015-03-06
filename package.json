@@ -18,6 +18,7 @@
     "reactify": "^1.0.0",
     "require-dir": "^0.1.0",
     "riotify": "0.0.7",
+    "riot": "mingliangfeng/riotjs.git#dev",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.3.0"
@@ -26,7 +27,14 @@
     "scriptPreprocessor": "preprocessor.js",
     "testFileExtensions": [
       "coffee",
-      "js"
+      "js",
+      "tag"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "coffee",
+      "tag"
     ]
   },
   "scripts": {
@@ -37,6 +45,6 @@
   "dependencies": {
     "flux": "^2.0.1",
     "object-assign": "^2.0.0",
-    "riot": "^2.0.7"
+    "riot": "mingliangfeng/riotjs.git#dev"
   }
 }

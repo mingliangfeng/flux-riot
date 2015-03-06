@@ -1,4 +1,3 @@
-riot = require 'riot'
 assign = require 'object-assign'
 AppDispatcher = require '../dispatchers/app_dispatcher.coffee'
 AppConstants = require '../constants/app_constants.coffee'

@@ -6,7 +6,7 @@ list = -> todo_presenter.list()
 
 add = -> todo_presenter.edit()
 
-edit = (id)-> alert "edit #{id}"
+edit = (id)-> todo_presenter.edit(id)
 
 routes = riot.route.to [
   [ '', list ],

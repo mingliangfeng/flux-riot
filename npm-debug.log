@@ -1,27 +1,107 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'start' ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.36
 4 verbose node symlink /usr/bin/node
-5 verbose run-script [ 'prestart', 'start', 'poststart' ]
-6 info prestart flux-riot@0.1.0
-7 info start flux-riot@0.1.0
-8 verbose unsafe-perm in lifecycle true
-9 info flux-riot@0.1.0 Failed to exec start script
-10 error flux-riot@0.1.0 start: `gulp`
-10 error Exit status 8
-11 error Failed at the flux-riot@0.1.0 start script.
-11 error This is most likely a problem with the flux-riot package,
-11 error not with npm itself.
-11 error Tell the author that this fails on your system:
-11 error     gulp
-11 error You can get their info via:
-11 error     npm owner ls flux-riot
-11 error There is likely additional logging output above.
-12 error System Linux 3.13.0-45-generic
-13 error command "/usr/bin/node" "/usr/bin/npm" "start"
-14 error cwd /home/afeng/workspace/flux-riot
-15 error node -v v0.10.36
-16 error npm -v 1.4.28
-17 error code ELIFECYCLE
-18 verbose exit [ 1, true ]
+5 warn package.json flux-riot@0.1.0 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ '/home/afeng/workspace/flux-riot',
+7 verbose install   [ 'flux',
+7 verbose install     'object-assign',
+7 verbose install     'riot',
+7 verbose install     '6to5ify',
+7 verbose install     'browserify',
+7 verbose install     'coffee-script',
+7 verbose install     'coffeeify',
+7 verbose install     'gulp',
+7 verbose install     'gulp-connect',
+7 verbose install     'gulp-less',
+7 verbose install     'gulp-sass',
+7 verbose install     'gulp-util',
+7 verbose install     'jest-cli',
+7 verbose install     'reactify',
+7 verbose install     'require-dir',
+7 verbose install     'riotify',
+7 verbose install     'vinyl-buffer',
+7 verbose install     'vinyl-source-stream',
+7 verbose install     'watchify' ] ]
+8 info preinstall flux-riot@0.1.0
+9 verbose readDependencies using package.json deps
+10 verbose already installed skipping coffee-script@1.9.0 /home/afeng/workspace/flux-riot
+11 verbose already installed skipping coffeeify@1.0.0 /home/afeng/workspace/flux-riot
+12 verbose already installed skipping gulp@^3.8.10 /home/afeng/workspace/flux-riot
+13 verbose already installed skipping gulp-connect@^2.2.0 /home/afeng/workspace/flux-riot
+14 verbose already installed skipping gulp-less@^2.0.1 /home/afeng/workspace/flux-riot
+15 verbose already installed skipping gulp-sass@^1.3.2 /home/afeng/workspace/flux-riot
+16 verbose already installed skipping gulp-util@^3.0.3 /home/afeng/workspace/flux-riot
+17 verbose already installed skipping jest-cli@^0.4.0 /home/afeng/workspace/flux-riot
+18 verbose already installed skipping reactify@^1.0.0 /home/afeng/workspace/flux-riot
+19 verbose already installed skipping require-dir@^0.1.0 /home/afeng/workspace/flux-riot
+20 verbose already installed skipping riotify@0.0.7 /home/afeng/workspace/flux-riot
+21 verbose already installed skipping vinyl-buffer@^1.0.0 /home/afeng/workspace/flux-riot
+22 verbose already installed skipping vinyl-source-stream@^1.0.0 /home/afeng/workspace/flux-riot
+23 verbose already installed skipping watchify@^2.3.0 /home/afeng/workspace/flux-riot
+24 verbose already installed skipping flux@^2.0.1 /home/afeng/workspace/flux-riot
+25 verbose already installed skipping object-assign@^2.0.0 /home/afeng/workspace/flux-riot
+26 verbose cache add [ 'riot@https://github.com/mingliangfeng/riotjs.git', null ]
+27 verbose cache add name=undefined spec="riot@https://github.com/mingliangfeng/riotjs.git" args=["riot@https://github.com/mingliangfeng/riotjs.git",null]
+28 verbose parsed url { protocol: null,
+28 verbose parsed url   slashes: null,
+28 verbose parsed url   auth: null,
+28 verbose parsed url   host: null,
+28 verbose parsed url   port: null,
+28 verbose parsed url   hostname: null,
+28 verbose parsed url   hash: null,
+28 verbose parsed url   search: null,
+28 verbose parsed url   query: null,
+28 verbose parsed url   pathname: 'riot@https://github.com/mingliangfeng/riotjs.git',
+28 verbose parsed url   path: 'riot@https://github.com/mingliangfeng/riotjs.git',
+28 verbose parsed url   href: 'riot@https://github.com/mingliangfeng/riotjs.git' }
+29 verbose already installed skipping 6to5ify@^4.1.0 /home/afeng/workspace/flux-riot
+30 verbose already installed skipping browserify@^8.1.3 /home/afeng/workspace/flux-riot
+31 verbose cache add name="riot" spec="https://github.com/mingliangfeng/riotjs.git" args=["riot","https://github.com/mingliangfeng/riotjs.git"]
+32 verbose parsed url { protocol: 'https:',
+32 verbose parsed url   slashes: true,
+32 verbose parsed url   auth: null,
+32 verbose parsed url   host: 'github.com',
+32 verbose parsed url   port: null,
+32 verbose parsed url   hostname: 'github.com',
+32 verbose parsed url   hash: null,
+32 verbose parsed url   search: null,
+32 verbose parsed url   query: null,
+32 verbose parsed url   pathname: '/mingliangfeng/riotjs.git',
+32 verbose parsed url   path: '/mingliangfeng/riotjs.git',
+32 verbose parsed url   href: 'https://github.com/mingliangfeng/riotjs.git' }
+33 silly lockFile 616653b9-hub-com-mingliangfeng-riotjs-git https://github.com/mingliangfeng/riotjs.git
+34 verbose lock https://github.com/mingliangfeng/riotjs.git /home/afeng/.npm/616653b9-hub-com-mingliangfeng-riotjs-git.lock
+35 verbose addRemoteTarball [ 'https://github.com/mingliangfeng/riotjs.git', null ]
+36 info retry fetch attempt 1 at 17:23:08
+37 verbose fetch to= /tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git
+38 http GET https://github.com/mingliangfeng/riotjs.git
+39 http 200 https://github.com/mingliangfeng/riotjs.git
+40 verbose tar unpack /tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git
+41 silly lockFile 5774c892--mingliangfeng-riotjs-git-unpack tar:///tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git-unpack
+42 verbose lock tar:///tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git-unpack /home/afeng/.npm/5774c892--mingliangfeng-riotjs-git-unpack.lock
+43 silly lockFile e9804528-hub-com-mingliangfeng-riotjs-git tar:///tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git
+44 verbose lock tar:///tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git /home/afeng/.npm/e9804528-hub-com-mingliangfeng-riotjs-git.lock
+45 silly gunzTarPerm modes [ '755', '644' ]
+46 error not a package /tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git
+47 silly lockFile 5774c892--mingliangfeng-riotjs-git-unpack tar:///tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git-unpack
+48 silly lockFile 5774c892--mingliangfeng-riotjs-git-unpack tar:///tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git-unpack
+49 silly lockFile e9804528-hub-com-mingliangfeng-riotjs-git tar:///tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git
+50 silly lockFile e9804528-hub-com-mingliangfeng-riotjs-git tar:///tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git
+51 silly lockFile 616653b9-hub-com-mingliangfeng-riotjs-git https://github.com/mingliangfeng/riotjs.git
+52 silly lockFile 616653b9-hub-com-mingliangfeng-riotjs-git https://github.com/mingliangfeng/riotjs.git
+53 error Error: ENOENT, open '/tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git-unpack/package.json'
+54 error If you need help, you may report this *entire* log,
+54 error including the npm and node versions, at:
+54 error     <http://github.com/npm/npm/issues>
+55 error System Linux 3.13.0-45-generic
+56 error command "/usr/bin/node" "/usr/bin/npm" "install"
+57 error cwd /home/afeng/workspace/flux-riot
+58 error node -v v0.10.36
+59 error npm -v 1.4.28
+60 error path /tmp/npm-5753-Gsi2-Nop/github.com/mingliangfeng/riotjs.git-unpack/package.json
+61 error code ENOENT
+62 error errno 34
+63 verbose exit [ 34, true ]
