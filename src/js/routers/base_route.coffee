@@ -2,8 +2,8 @@ riot = require 'riot'
 
 riot.route.parser( (path)-> [path] )
 
-regexTransfer = (mapper)->
-  parts = mapper[0].split('/')
+regexTransfer = (path, callback)->
+  parts = path.split('/')
   regexParts = []
   for part in parts
     continue unless part and part.length > 0
@@ -12,11 +12,12 @@ regexTransfer = (mapper)->
     else
       regexParts.push part
   regex = ///^#{regexParts.join('\\/')}\/?$///i
-  [regex, mapper[1]]
+  [regex, callback]
 
-riot.route.to = (mapper_array)->
+riot.route.to = ->
   regexFuncs = []
-  regexFuncs.push(regexTransfer(mapper)) for mapper in mapper_array
+  for i in [0...arguments.length] by 2
+    regexFuncs.push regexTransfer(arguments[i], arguments[i + 1])
 
   routes = (path)->
     for regexFunc in regexFuncs

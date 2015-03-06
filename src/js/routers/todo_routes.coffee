@@ -8,10 +8,9 @@ add = -> todo_presenter.edit()
 
 edit = (id)-> todo_presenter.edit(id)
 
-routes = riot.route.to [
-  [ '', list ],
-  [ 'todos/edit/:id', edit ],
-  [ 'todos/add', add ]
-]
+routes = riot.route.to \
+  '', list,
+  'todos/edit/:id', edit,
+  'todos/add', add
 
 module.exports = routes
