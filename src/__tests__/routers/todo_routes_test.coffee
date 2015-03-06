@@ -13,12 +13,16 @@ describe 'todo_routes', ->
 
   it 'root routes', ->
     todo_routes.start ''
-    expect(todo_presenter.list.mock.calls.length).toBe 1
+    setTimeout ->
+      expect(todo_presenter.list.mock.calls.length).toBe 1
+    , 500
 
   it 'add routes', ->
     riot = require 'riot'
     riot.route 'todos/add'
-    expect(todo_presenter.edit.mock.calls.length).toBe 1
+    setTimeout ->
+      expect(todo_presenter.edit.mock.calls.length).toBe 1
+    , 500
 
     paras = todo_presenter.edit.mock.calls[0][0]
     expect(paras).toBe undefined
@@ -26,7 +30,8 @@ describe 'todo_routes', ->
   it 'edit routes', ->
     riot = require 'riot'
     riot.route 'todos/edit/1'
-    expect(todo_presenter.edit.mock.calls.length).toBe 1
-
-    paras = todo_presenter.edit.mock.calls[0][0]
-    expect(paras).toBe '1'
+    setTimeout ->
+      expect(todo_presenter.edit.mock.calls.length).toBe 1
+      paras = todo_presenter.edit.mock.calls[0][0]
+      expect(paras).toBe '1'
+    , 500
