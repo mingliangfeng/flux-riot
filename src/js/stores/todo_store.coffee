@@ -26,11 +26,11 @@ TodoStore = assign new BaseStore(),
     action = payload.action
     switch action.type
       when AppConstants.ActionTypes.ADD_TASK
-        text = action.data.trim()
+        text = action.data
         # NOTE: if this action needs to wait on another store
         # AppDispatcher.waitFor [ OtherStore.dispatchToken ]
-        if text != ''
-          addTask text
+        if text
+          addTask text.trim()
           TodoStore.emitChange()
       when AppConstants.ActionTypes.TOGGLE_TASK
         task = action.data
