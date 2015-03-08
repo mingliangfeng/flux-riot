@@ -22,10 +22,9 @@ describe 'todo_routes', ->
     riot.route 'todos/add'
     setTimeout ->
       expect(todo_presenter.edit.mock.calls.length).toBe 1
+      paras = todo_presenter.edit.mock.calls[0][0]
+      expect(paras).toBe undefined
     , 500
-
-    paras = todo_presenter.edit.mock.calls[0][0]
-    expect(paras).toBe undefined
 
   it 'edit routes', ->
     riot = require 'riot'
