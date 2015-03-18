@@ -2,7 +2,7 @@
   "name": "flux-riot",
   "version": "0.1.0",
   "description": "flux-riot: use riot with flux architecture",
-  "author": "",
+  "author": "mingliangfeng@gmail.com",
   "license": "MIT",
   "devDependencies": {
     "6to5ify": "^4.1.0",
@@ -17,20 +17,6 @@
     "require-dir": "^0.1.0",
     "watchify": "^2.3.0",
     "harmonize": "^1.4.0"
-  },
-  "jest": {
-    "scriptPreprocessor": "preprocessor.js",
-    "testFileExtensions": [
-      "coffee",
-      "js",
-      "tag"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "coffee",
-      "tag"
-    ]
   },
   "scripts": {
     "start": "gulp watch",

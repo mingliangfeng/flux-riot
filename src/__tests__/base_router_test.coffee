@@ -33,7 +33,9 @@ describe 'base_router', ->
 
   it 'BaseRouter.routes with parameters', ->
     action2 = jasmine.createSpy('action2')
-    flux_riot.BaseRouter.routes (->), 'path/:id', action, 'path/:action/:id', action2
+    flux_riot.BaseRouter.routes (->), \
+      'path/:id', action,
+      'path/:action/:id', action2
     global.riot.route 'path/9'
     expect(action).toHaveBeenCalledWith('9')
 
