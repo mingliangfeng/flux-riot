@@ -18,15 +18,14 @@ module.exports = {
     dest: './dist/npm/'
   },
   jest: {
-    rootDir: source,
-    preprocessor: "./build/support/preprocessor.js",
-    fileExtensions: [ "js" ],
-    unmockedModules: [ "node_modules/riot" ],
-    testPathIgnore: [ "node_modules", "examples" ],
-    moduleFileExtensions: [ "js", "json", "tag" ]
+    rootDir: './',
+    testFileExtensions: [ 'js', 'json', 'coffee' ],
+    testPathIgnorePatterns: [ 'node_modules', 'examples', '__test__/support' ],
+    unmockedModulePathPatterns: [ 'node_modules/riot', 'support/helper.coffee' ],
+    scriptPreprocessor: './build/support/preprocessor.js'
   },
   watch: {
     src: source + '/**/*.*',
-    tasks: ['build']
+    tasks: ['jest']
   }
 }

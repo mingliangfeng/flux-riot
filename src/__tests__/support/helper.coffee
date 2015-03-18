@@ -1,4 +1,4 @@
-path_prefix = "../"
+path_prefix = "../../"
 
 module.exports =
   require_src: (path)-> require "#{path_prefix}#{path}"

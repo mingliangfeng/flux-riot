@@ -1,6 +1,4 @@
-jest.dontMock './helper.coffee'
-jest.dontMock 'riot'
-helper = require './helper.coffee'
+helper = require './support/helper.coffee'
 helper.dontMock 'base_store.js'
 
 global.riot = require 'riot'
