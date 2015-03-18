@@ -1,14 +1,14 @@
+var compiler = require('riot/compiler')
 var coffee = require('coffee-script')
-var riot = require('riot/compiler')
 var preamble = "var riot = require('riot')\n"
 
 module.exports = {
   process: function(src, path) {
-    if (path.match(/\.coffee$/)) {
+    if (coffee.helpers.isCoffee(path)) {
       return coffee.compile(src, {'bare': true})
     }
     if (path.match(/\.tag$/)) {
-      return preamble + riot.compile(src)
+      return preamble + compiler.compile(src)
     }
     return src
   }

@@ -17,6 +17,14 @@ module.exports = {
   npm: {
     dest: './dist/npm/'
   },
+  jest: {
+    rootDir: source,
+    preprocessor: "./build/support/preprocessor.js",
+    fileExtensions: [ "js" ],
+    unmockedModules: [ "node_modules/riot" ],
+    testPathIgnore: [ "node_modules", "examples" ],
+    moduleFileExtensions: [ "js", "json", "tag" ]
+  },
   watch: {
     src: source + '/**/*.*',
     tasks: ['build']

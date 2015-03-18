@@ -2,7 +2,7 @@ flux_riot.BaseRouter = (function() {
 
   var regexFuncs = []
 
-  function regexTransfer(path, callback) {
+  function regexTransfer(path) {
     var parts = path.split('/')
     var regexParts = []
     for (var i = 0; i < parts.length; i++) {
@@ -10,20 +10,23 @@ flux_riot.BaseRouter = (function() {
       if (!(part && part.length > 0)) continue
 
       if (part[0] === ':') {
-        regexParts.push('(.+?)')
+        regexParts.push('((?:(?!\\/).)+?)')
       } else {
         regexParts.push(part)
       }
     }
-    var regex = RegExp("^" + (regexParts.join('\\/')) + "\\/?$", "i")
-    return [regex, callback]
+    return RegExp("^" + (regexParts.join('\\/')) + "\\/?$", "i")
   }
 
   function route(path) {
-    for (var i = 0; i < regexFuncs.length; i++) {
-      var regexFunc = regexFuncs[j]
+    if (regexFuncs.length === 0) return
+
+    if (path === '') return regexFuncs[0][1].apply(null, [])
+
+    for (var i = 1; i < regexFuncs.length; i++) {
+      var regexFunc = regexFuncs[i]
       var m = path.match(regexFunc[0])
-      if (m) return regexFunc[1].apply(null, m.slice(1))
+      if (m != null) return regexFunc[1].apply(null, m.slice(1))
     }
   }
 
@@ -31,8 +34,9 @@ flux_riot.BaseRouter = (function() {
     if (!(arguments.length > 0)) return
 
     regexFuncs.push([ '', arguments[0] ])
-    for (var i; i < regexFuncs.length; i += 2) {
-      regexFuncs.push(regexTransfer(arguments[i], arguments[i + 1]))
+    for (var i = 1; i < arguments.length; i += 2) {
+      regex = regexTransfer(arguments[i])
+      regexFuncs.push([ regex, arguments[i + 1] ])
     }
   }
 
