@@ -22,6 +22,7 @@
     "start": "gulp watch",
     "test": "gulp jest"
   },
+  "main": "flux-riot.js",
   "dependencies": {
     "flux": "^2.0.1",
     "riot": "mingliangfeng/riotjs.git#dev"

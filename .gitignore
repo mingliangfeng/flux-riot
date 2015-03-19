@@ -1,4 +1,9 @@
 /bower_components/
-/dist/
 /node_modules/
+/dist/
+
+examples/**/bower_components/
+examples/**/node_modules/
+examples/**/dist/
+
 /**/npm-debug.log

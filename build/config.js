@@ -20,7 +20,7 @@ module.exports = {
   jest: {
     rootDir: './',
     testFileExtensions: [ 'js', 'json', 'coffee' ],
-    testPathIgnorePatterns: [ 'node_modules', 'examples', '__test__/support' ],
+    testPathIgnorePatterns: [ 'node_modules', 'examples', '__tests__/support' ],
     unmockedModulePathPatterns: [ 'node_modules/riot', 'support/helper.coffee' ],
     scriptPreprocessor: './build/support/preprocessor.js'
   },
