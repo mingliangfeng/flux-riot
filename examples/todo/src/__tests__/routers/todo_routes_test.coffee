@@ -1,6 +1,8 @@
 helper = require '../support/helper.coffee'
 helper.dontMock 'routers/todo_routes.coffee'
 
+riot = require 'riot/riot'
+
 describe 'todo_routes', ->
   todo_presenter = todo_routes = null
 
@@ -15,7 +17,7 @@ describe 'todo_routes', ->
     , 500
 
   it 'add routes', ->
-    riot = require 'riot'
+
     riot.route 'todos/add'
     setTimeout ->
       expect(todo_presenter.edit.mock.calls.length).toBe 1
@@ -24,7 +26,6 @@ describe 'todo_routes', ->
     , 500
 
   it 'edit routes', ->
-    riot = require 'riot'
     riot.route 'todos/edit/1'
     setTimeout ->
       expect(todo_presenter.edit.mock.calls.length).toBe 1

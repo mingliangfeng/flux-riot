@@ -1,6 +1,6 @@
 var coffee = require('coffee-script')
 var riot = require('riot/compiler')
-var preamble = "var riot = require('riot')\n"
+var preamble = "var riot = require('riot/riot')\n"
 
 module.exports = {
   process: function(src, path) {

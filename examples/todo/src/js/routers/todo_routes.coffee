@@ -1,4 +1,4 @@
-riot = require 'riot'
+riot = require 'riot/riot'
 flux_riot = require 'flux-riot'
 todo_presenter = require '../presenters/todo_presenter.coffee'
 
