@@ -2,7 +2,7 @@ helper = require './support/helper.coffee'
 helper.dontMock 'base_router.js'
 
 global.location = { hash: '' }
-global.riot = require 'riot'
+global.riot = require 'riot/riot'
 
 describe 'base_router', ->
   base_router = flux_riot = action = null

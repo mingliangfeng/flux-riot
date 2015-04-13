@@ -1,7 +1,7 @@
 helper = require './support/helper.coffee'
 helper.dontMock 'base_store.js'
 
-global.riot = require 'riot'
+global.riot = require 'riot/riot'
 
 describe 'base_store', ->
   base_store = flux_riot = action = null
