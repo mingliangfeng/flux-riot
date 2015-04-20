@@ -33,6 +33,7 @@
   "dependencies": {
     "object-assign": "^2.0.0",
     "keymirror": "^0.1.1",
-    "flux-riot": "../../dist/npm"
+    "flux-riot": "../../dist/npm",
+    "riot": "^2.0.14"
   }
 }

@@ -4,7 +4,8 @@
   "dependencies": {
     "object-assign": "^2.0.0",
     "keymirror": "^0.1.1",
-    "flux-riot": "^0.2.0"
+    "flux-riot": "^0.2.0",
+    "riot": "^2.0.14"
   },
   "devDependencies": {
     "6to5ify": "^4.1.0",
