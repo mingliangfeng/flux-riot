@@ -25,6 +25,7 @@
   "main": "flux-riot.js",
   "dependencies": {
     "flux": "^2.0.1",
-    "riot": "^2.0.14"
+    "riot": "^2.0.14",
+    "object-assign": "^2.0.0"
   }
 }

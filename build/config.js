@@ -8,7 +8,8 @@ module.exports = {
     suffix_npm: source + '/wrap/npm/suffix.js',
     base_store: source + '/base_store.js',
     store_mixin: source + '/store_mixin.js',
-    base_router: source + '/base_router.js'
+    base_router: source + '/base_router.js',
+    dispatcher: source + '/dispatcher.js'
   },
   name: {
     js: 'flux-riot.js',
@@ -21,7 +22,7 @@ module.exports = {
     rootDir: './',
     testFileExtensions: [ 'js', 'json', 'coffee' ],
     testPathIgnorePatterns: [ 'node_modules', 'examples', '__tests__/support' ],
-    unmockedModulePathPatterns: [ 'node_modules/riot', 'support/helper.coffee' ],
+    unmockedModulePathPatterns: [ 'node_modules/riot', 'support/helper.coffee', 'object-assign' ],
     scriptPreprocessor: './build/support/preprocessor.js'
   },
   watch: {

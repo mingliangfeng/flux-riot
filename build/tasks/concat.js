@@ -5,7 +5,7 @@ var name = require('../config').name
 
 gulp.task('concat', function() {
   gulp.src([src.prefix,
-    src.base_store, src.store_mixin, src.base_router,
+    src.base_store, src.store_mixin, src.base_router, src.dispatcher,
     src.suffix])
     .pipe(concat(name.js))
     .pipe(gulp.dest('.'))
