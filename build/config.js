@@ -27,6 +27,6 @@ module.exports = {
   },
   watch: {
     src: source + '/**/*.*',
-    tasks: ['jest']
+    tasks: ['build', 'jest']
   }
 }
