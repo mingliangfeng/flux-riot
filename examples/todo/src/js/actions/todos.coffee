@@ -1,8 +1,8 @@
-AppDispatcher = require '../dispatchers/app_dispatcher.coffee'
+Dispatcher = require('flux-riot').Dispatcher
 AppConstants = require '../constants/app_constants.coffee'
 
 dispatch = (type, data)->
-  AppDispatcher.handleViewAction
+  Dispatcher.handleViewAction
     type: type
     data: data
 

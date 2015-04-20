@@ -7,7 +7,9 @@ app_tag = null
 
 unmount = -> app_tag.unmount() if app_tag
 mount = (tag, opts)->
-  app_container = document.getElementById('app-container')
+  app_container = document.createElement("div")
+  app_container.id = 'app-container'
+  document.getElementById('container').appendChild(app_container)
   riot.mount('#app-container', tag, opts)[0]
 
 module.exports =

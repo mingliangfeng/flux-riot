@@ -23,7 +23,8 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.3.0",
-    "harmonize": "^1.4.0"
+    "harmonize": "^1.4.0",
+    "jasmine-pit": "^2.0.2"
   },
   "scripts": {
     "start": "gulp",

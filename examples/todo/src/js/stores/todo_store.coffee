@@ -1,6 +1,6 @@
 assign = require 'object-assign'
-AppDispatcher = require '../dispatchers/app_dispatcher.coffee'
-AppConstants = require '../constants/app_constants.coffee'
+Dispatcher = require('flux-riot').Dispatcher
+ActionTypes = require('../constants/app_constants.coffee').ActionTypes
 flux_riot = require 'flux-riot'
 
 # data storage
@@ -28,13 +28,13 @@ TodoStore = assign new flux_riot.BaseStore(),
     for task in TodoStore.getAll()
       return task if task.id == parseInt(id)
 
-  dispatchToken: AppDispatcher.register  (payload)->
+  dispatchToken: Dispatcher.register (payload)->
     action = payload.action
     switch action.type
-      when AppConstants.ActionTypes.TASK_SAVE
+      when ActionTypes.TASK_SAVE
         data = action.data
         # NOTE: if this action needs to wait on another store
-        # AppDispatcher.waitFor [ OtherStore.dispatchToken ]
+        # Dispatcher.waitFor [ OtherStore.dispatchToken ]
         if data.id
           task = TodoStore.getTask(data.id)
           task.title = data.title
@@ -42,10 +42,10 @@ TodoStore = assign new flux_riot.BaseStore(),
         else if data.title
           addTask data.title
           TodoStore.emitChange()
-      when AppConstants.ActionTypes.TASK_TOGGLE
+      when ActionTypes.TASK_TOGGLE
         task = action.data
         task.done = !task.done
-      when AppConstants.ActionTypes.TASK_REMOVE
+      when ActionTypes.TASK_REMOVE
         task = action.data
         index = TodoStore.getAll().indexOf(task)
         TodoStore.getAll().splice(index, 1)

@@ -1,74 +1,86 @@
 helper = require '../support/helper.coffee'
 helper.dontMock 'stores/todo_store.coffee'
-
-AppConstants = helper.require_src 'constants/app_constants.coffee'
+ActionSources = require('flux-riot').Constants.ActionSources
+ActionTypes = helper.require_src('constants/app_constants.coffee').ActionTypes
 
 describe 'todo_store', ->
-  AppDispatcher = todo_store = callback =null
-  saveTask = toggleTask = removeTask = null
+  Dispatcher = todo_store = null
 
   beforeEach ->
-    AppDispatcher = helper.require_src 'dispatchers/app_dispatcher.coffee'
-    todo_store = helper.require_src 'stores/todo_store.coffee'
-    callback = AppDispatcher.register.mock.calls[0][0]
-
-    saveTask =
-      source: AppConstants.ActionSources.VIEW_ACTION
-      action:
-        type: AppConstants.ActionTypes.TASK_SAVE
-        data: { title: 'task' }
-
-    toggleTask =
-      source: AppConstants.ActionSources.VIEW_ACTION
-      action:
-        type: AppConstants.ActionTypes.TASK_TOGGLE
-        data: { done: false }
-
-    removeTask =
-      source: AppConstants.ActionSources.VIEW_ACTION
-      action:
-        type: AppConstants.ActionTypes.TASK_REMOVE
-        data: todo_store.getAll()[0]
+    Dispatcher = require('flux-riot').Dispatcher
 
   it 'rigster a callback', ->
-    expect(AppDispatcher.register.mock.calls.length).toBe 1
+    spyOn Dispatcher, 'register'
+    todo_store = helper.require_src 'stores/todo_store.coffee'
+    expect(Dispatcher.register).toHaveBeenCalled()
 
-  it 'initialize store with 5 items', ->
-    tasks = todo_store.getAll()
-    expect(tasks.length).toBe 5
+  describe 'after register', ->
+    beforeEach ->
+      todo_store = helper.require_src 'stores/todo_store.coffee'
 
-  describe 'add task', ->
-    it 'add valid task', ->
-      spyOn todo_store, 'emitChange'
+    describe 'toggle and remove', ->
+      toggleTask = removeTask = null
 
-      callback saveTask
-      tasks = todo_store.getAll()
-      expect(tasks.length).toBe 6
-      expect(tasks[tasks.length - 1].title).toBe 'task'
+      beforeEach ->
+        todo_store = helper.require_src 'stores/todo_store.coffee'
 
-      expect(todo_store.emitChange).toHaveBeenCalled()
+        toggleTask =
+          source: ActionSources.VIEW_ACTION
+          action:
+            type: ActionTypes.TASK_TOGGLE
+            data: { done: false }
 
-    it 'add empty task', ->
-      spyOn todo_store, 'emitChange'
-      saveTask.action.data = ''
-      callback saveTask
-      expect(todo_store.getAll().length).toBe 5
-      expect(todo_store.emitChange).not.toHaveBeenCalled()
+        removeTask =
+          source: ActionSources.VIEW_ACTION
+          action:
+            type: ActionTypes.TASK_REMOVE
+            data: todo_store.getAll()[0]
 
-  it 'toggle task', ->
-    callback toggleTask
-    expect(toggleTask.action.data.done).toBe true
+      it 'initialize store with 5 items', ->
+        tasks = todo_store.getAll()
+        expect(tasks.length).toBe 5
 
-  it 'remove task', ->
-    spyOn todo_store, 'emitChange'
-    tasks = todo_store.getAll()
-    task = removeTask.action.data
-    expect(task in tasks).toBe true
+      it 'toggle task', ->
+        Dispatcher.dispatch toggleTask
+        expect(toggleTask.action.data.done).toBe true
 
-    callback removeTask
+      it 'remove task', ->
+        spyOn todo_store, 'emitChange'
+        tasks = todo_store.getAll()
+        task = removeTask.action.data
+        expect(task in tasks).toBe true
 
-    tasks = todo_store.getAll()
-    expect(task in tasks).toBe false
-    expect(tasks.length).toBe 4
+        Dispatcher.dispatch removeTask
 
-    expect(todo_store.emitChange).toHaveBeenCalled()
+        tasks = todo_store.getAll()
+        expect(task in tasks).toBe false
+        expect(tasks.length).toBe 4
+
+        expect(todo_store.emitChange).toHaveBeenCalled()
+
+    describe 'add task', ->
+      saveTask = null
+
+      beforeEach ->
+        spyOn todo_store, 'emitChange'
+        saveTask =
+          source: ActionSources.VIEW_ACTION
+          action:
+            type: ActionTypes.TASK_SAVE
+            data: { title: 'task' }
+
+      it 'add valid task', ->
+        Dispatcher.dispatch saveTask
+
+        tasks = todo_store.getAll()
+        expect(tasks.length).toBe 6
+        expect(tasks[tasks.length - 1].title).toBe 'task'
+
+        expect(todo_store.emitChange).toHaveBeenCalled()
+
+      it 'add empty task', ->
+        saveTask.action.data = ''
+        Dispatcher.dispatch saveTask
+
+        expect(todo_store.getAll().length).toBe 5
+        expect(todo_store.emitChange).not.toHaveBeenCalled()
