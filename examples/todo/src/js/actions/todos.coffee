@@ -1,5 +1,5 @@
 Dispatcher = require('flux-riot').Dispatcher
-AppConstants = require '../constants/app_constants.coffee'
+ActionTypes = require('../constants/app_constants.coffee').ActionTypes
 
 dispatch = (type, data)->
   Dispatcher.handleViewAction
@@ -8,13 +8,13 @@ dispatch = (type, data)->
 
 module.exports =
   saveTask: (task) ->
-    dispatch AppConstants.ActionTypes.TASK_SAVE, task
+    dispatch ActionTypes.TASK_SAVE, task
 
   removeTask: (task) ->
-    dispatch AppConstants.ActionTypes.TASK_REMOVE, task
+    dispatch ActionTypes.TASK_REMOVE, task
 
   toggleTask: (task) ->
-    dispatch AppConstants.ActionTypes.TASK_TOGGLE, task
+    dispatch ActionTypes.TASK_TOGGLE, task
 
   clearTasks: ->
-    dispatch AppConstants.ActionTypes.TASK_CLEAR
+    dispatch ActionTypes.TASK_CLEAR
