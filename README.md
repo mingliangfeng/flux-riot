@@ -36,7 +36,7 @@ See [generator-flux-riot](https://github.com/mingliangfeng/generator-flux-riot)
 ## Components
 
 ### flux_riot.BaseStore
-Observable base store to be extended.; exposes addChangeListener, removeChangeListener, and emitChange functions. e.g.
+Observable base store to be extended. Exposes addChangeListener, removeChangeListener, and emitChange functions. e.g.
 
 Create new store:
 ```
@@ -58,11 +58,11 @@ Register and unregister store listener from view:
 # inside riot tag
 ...
 this.on('mount', function() {
-  return store.addChangeListener(this.storeChanged)
+  store.addChangeListener(this.storeChanged)
 })
 
 this.on('unmount', function() {
-  return store.removeChangeListener(this.storeChanged)
+  store.removeChangeListener(this.storeChanged)
 })
 
 ```
@@ -70,6 +70,7 @@ this.on('unmount', function() {
 
 ### flux_riot.storeMixin
 Helper to mixin store to a riot tag, exposes method storeMixin(tag, store, storeChangeHandler) and does 3 things:
+
 1. assign store to store property of tag instance;
 2. listen to mount event and register store listener;
 3. listen to unmount event and unregister store listener.
@@ -84,6 +85,7 @@ flux_riot.storeMixin(this, opts.store, this.updateFromStore)
 
 ### flux_riot.BaseRouter
 A thin layer on top of riot.router, provides a declarative way to define routes.
+
 1. flux_riot.BaseRouter.routes(root_action, [path, action, [..]])
 
   e.g.
