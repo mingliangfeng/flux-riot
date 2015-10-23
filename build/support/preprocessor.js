@@ -1,4 +1,4 @@
-var compiler = require('riot/compiler')
+var compiler = require('riot').compile
 var coffee = require('coffee-script')
 var preamble = "var riot = require('riot')\n"
 
