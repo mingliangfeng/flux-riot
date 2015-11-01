@@ -17,8 +17,7 @@ module.exports = function(config) {
     files: [
       '../node_modules/riot/riot.js',
       '../dist/index.js',
-      '../test/specs/base_store_test.coffee',
-      '../test/specs/base_router_test.coffee'
+      '../test/specs/*.coffee'
     ],
 
 
@@ -30,8 +29,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '../test/specs/base_store_test.coffee': ['browserify'],
-      '../test/specs/base_router_test.coffee': ['browserify']
+      '../test/specs/*.coffee': ['browserify']
       //'../test/specs/test.coffee': ['coffee']
     },
 

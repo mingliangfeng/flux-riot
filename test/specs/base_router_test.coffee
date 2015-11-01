@@ -1,9 +1,9 @@
 describe 'base_router', ->
   BaseRouter = require('../../dist/flux-riot.js').BaseRouter
-  base_router = action = riot = null
+  riot = require('riot/riot')
+  action = null
 
   beforeEach ->
-    riot = window.riot
     action = jasmine.createSpy('action')
 
   it 'BaseRouter.start for root', ->
@@ -11,19 +11,16 @@ describe 'base_router', ->
     BaseRouter.start()
     expect(action).toHaveBeenCalled()
 
-  it 'BaseRouter.start for path', (done)->
+  it 'BaseRouter.start for path', ->
     BaseRouter.routes (->), 'path', action
-    window.location.hash = '#path'
+    window.location.hash = 'path'
     BaseRouter.start()
-    setTimeout ->
-      expect(action).toHaveBeenCalled()
-      done()
-    , 1000
+    expect(action).toHaveBeenCalled()
 
   it 'BaseRouter.routes', ->
-    action2 = jasmine.createSpy('action2')
     BaseRouter.routes (->), 'path', action
     riot.route 'path'
+    expect(window.location.hash).toBe '#path'
     expect(action).toHaveBeenCalled()
 
   it 'BaseRouter.routes with parameters', ->
